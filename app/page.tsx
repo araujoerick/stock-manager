@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>Home teste</div>;
+  return <main className="ml-64 p-8">Home teste</main>;
 }
