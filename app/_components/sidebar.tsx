@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "./ui/button";
 
 const Sidebar = () => {
   return (
@@ -9,6 +10,15 @@ const Sidebar = () => {
         </h1>
       </div>
       <div className="flex flex-col gap-2 p-2.5">
+        <Button variant="ghost" className="justify-start">
+          Dashboard
+        </Button>
+        <Button variant="ghost" className="justify-start">
+          Produtos
+        </Button>
+        <Button variant="ghost" className="justify-start">
+          Vendas
+        </Button>
         <button className="rounded-lg bg-[#00a180]/10 px-6 py-3 text-left text-[#00a180]">
           Dashboard
         </button>
