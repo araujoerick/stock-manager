@@ -1,30 +1,27 @@
-import React from "react";
-import { Button } from "./ui/button";
+import { LayoutGrid, Package, ShoppingBasket } from "lucide-react";
+import SidebarButton from "./sidebar-button";
 
 const Sidebar = () => {
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-white">
+    <aside className="h-screen w-64 bg-white">
       <div>
         <h1 className="px-8 py-6 text-2xl font-extrabold text-[#00a180]">
           STOCKLY
         </h1>
       </div>
       <div className="flex flex-col gap-2 p-2.5">
-        <Button variant="ghost" className="justify-start">
+        <SidebarButton href="/">
+          <LayoutGrid size={20} />
           Dashboard
-        </Button>
-        <Button variant="ghost" className="justify-start">
+        </SidebarButton>
+        <SidebarButton href="/products">
+          <Package size={20} />
           Produtos
-        </Button>
-        <Button variant="ghost" className="justify-start">
+        </SidebarButton>
+        <SidebarButton href="/sales">
+          <ShoppingBasket size={20} />
           Vendas
-        </Button>
-        <button className="rounded-lg bg-[#00a180]/10 px-6 py-3 text-left text-[#00a180]">
-          Dashboard
-        </button>
-        <button className="rounded-lg bg-[#00a180]/10 px-6 py-3 text-left text-[#00a180]">
-          Produtos
-        </button>
+        </SidebarButton>
       </div>
     </aside>
   );
