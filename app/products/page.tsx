@@ -2,10 +2,10 @@ import { PlusIcon } from "lucide-react";
 import { Button } from "../_components/ui/button";
 import { DataTable } from "../_components/ui/data-table";
 import { productTableColumns } from "./_components/table-columns";
-import { getProducts } from "../_data-access/product/get-products";
 
 const ProductsPage = async () => {
-  const products = await getProducts();
+  const response = await fetch("http://localhost:3000/api/products");
+  const products = await response.json();
 
   return (
     <section className="w-[1188px] space-y-5 p-8">
