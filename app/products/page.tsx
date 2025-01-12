@@ -3,6 +3,14 @@ import { Button } from "../_components/ui/button";
 import { DataTable } from "../_components/ui/data-table";
 import { productTableColumns } from "./_components/table-columns";
 import { getProducts } from "../_data-access/product/get-products";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../_components/ui/dialog";
 
 const ProductsPage = async () => {
   const products = await getProducts();
@@ -16,10 +24,22 @@ const ProductsPage = async () => {
             Gestão de produtos
           </h1>
         </div>
-        <Button className="self-end">
-          <PlusIcon />
-          Novo produto
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button className="self-end">
+              <PlusIcon />
+              Novo produto
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Adicionar novo produto</DialogTitle>
+              <DialogDescription>
+                Insira as informações do produto.
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       </div>
       <DataTable
         columns={productTableColumns}
