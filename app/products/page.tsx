@@ -10,7 +10,9 @@ const ProductsPage = async () => {
     <section className="w-[1188px] space-y-5 p-8">
       <div className="flex w-full justify-between">
         <div className="space-y-2">
-          <span className="text-xs font-semibold text-[#00A180]">Produtos</span>
+          <span className="text-brand-primary text-xs font-semibold">
+            Produtos
+          </span>
           <h1 className="text-xl font-semibold text-slate-900">
             Gestão de produtos
           </h1>
