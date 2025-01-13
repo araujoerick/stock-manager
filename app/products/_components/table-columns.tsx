@@ -1,9 +1,22 @@
 "use client";
 
 import { Badge } from "@/app/_components/ui/badge";
+import { Button } from "@/app/_components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/app/_components/ui/dropdown-menu";
 import { Product } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
-import { Circle } from "lucide-react";
+import {
+  Circle,
+  ClipboardCopyIcon,
+  EditIcon,
+  MoreHorizontalIcon,
+  TrashIcon,
+} from "lucide-react";
 
 export const productTableColumns: ColumnDef<Product>[] = [
   {
@@ -33,7 +46,7 @@ export const productTableColumns: ColumnDef<Product>[] = [
       const status = row.getValue("status");
       const statusBadge =
         status === "IN_STOCK" ? (
-          <Badge className="gap-1.5 bg-[#00A180]/10 text-[#00A180] hover:bg-[#00A180]/15">
+          <Badge className="bg-brand-primary/10 text-brand-primary hover:bg-brand-primary/15 gap-1.5">
             <Circle size={10} className="fill-current" />
             Em estoque
           </Badge>
@@ -47,7 +60,36 @@ export const productTableColumns: ColumnDef<Product>[] = [
     },
   },
   {
-    accessorKey: "",
+    accessorKey: "actions",
     header: "Ações",
+    cell: ({ row }) => {
+      const product = row.original;
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost">
+              <MoreHorizontalIcon size={16} className="text-brand-primary" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem
+              className="gap-1"
+              onClick={() => navigator.clipboard.writeText(product.id)}
+            >
+              <ClipboardCopyIcon size={16} />
+              Copiar ID
+            </DropdownMenuItem>
+            <DropdownMenuItem className="gap-1">
+              <EditIcon size={16} />
+              Editar
+            </DropdownMenuItem>
+            <DropdownMenuItem className="gap-1">
+              <TrashIcon size={16} />
+              Deletar
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      );
+    },
   },
 ];
