@@ -35,12 +35,11 @@ export const productTableColumns: ColumnDef<Product>[] = [
     accessorKey: "price",
     header: "Valor unitário",
     cell: ({ row }) => {
-      const price = parseFloat(row.getValue("price"));
-      const formatted = new Intl.NumberFormat("pt-BR", {
+      const product = row.original;
+      return Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
-      }).format(price);
-      return <div className="">{formatted}</div>;
+      }).format(Number(product.price));
     },
   },
   {
