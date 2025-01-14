@@ -26,6 +26,7 @@ import { Input } from "@/app/_components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { NumericFormat } from "react-number-format";
+import { toast } from "sonner";
 
 interface UpsertProductDialogContentProps {
   defaultValues?: UpsertProductSchema;
@@ -53,8 +54,14 @@ const UpsertProductDialogContent = ({
     try {
       await upsertProduct({ ...data, id: defaultValues?.id });
       onSuccess?.();
+      if (defaultValues?.id === data.id) {
+        toast.success("Produto criado com sucesso!");
+      } else {
+        toast.success("Produto editado com sucesso!");
+      }
     } catch (error) {
       console.error(error);
+      toast.error("Ocorreu um erro ao criar produto!");
     }
   };
 
