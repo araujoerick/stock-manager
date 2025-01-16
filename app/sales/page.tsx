@@ -1,9 +1,16 @@
-import React from "react";
 import { Button } from "../_components/ui/button";
 import { Sheet, SheetTrigger } from "../_components/ui/sheet";
 import UpsertSheetContent from "./_components/upsert-sheet-content";
+import { getProducts } from "../_data-access/product/get-products";
+import { ComboboxOption } from "../_components/ui/combobox";
 
-const SalesPage = () => {
+const SalesPage = async () => {
+  const products = await getProducts();
+  const productOptions: ComboboxOption[] = products.map((product) => ({
+    value: product.id,
+    label: product.name,
+  }));
+
   return (
     <section className="w-[1188px] space-y-5 p-8">
       <div className="flex w-full justify-between">
@@ -19,7 +26,7 @@ const SalesPage = () => {
           <SheetTrigger asChild>
             <Button>Nova Venda</Button>
           </SheetTrigger>
-          <UpsertSheetContent />
+          <UpsertSheetContent productOptions={productOptions} />
         </Sheet>
       </div>
       {/* <DataTable
