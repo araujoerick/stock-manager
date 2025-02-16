@@ -5,7 +5,7 @@ const Sidebar = () => {
   return (
     <aside className="h-screen w-64 bg-white">
       <div>
-        <h1 className="px-8 py-6 text-2xl font-extrabold text-[#00a180]">
+        <h1 className="px-8 py-6 text-2xl font-extrabold text-primary">
           STOCKLY
         </h1>
       </div>

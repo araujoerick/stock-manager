@@ -33,7 +33,7 @@ export const productTableColumns: ColumnDef<Product>[] = [
       const status = row.getValue("status");
       const statusBadge =
         status === "IN_STOCK" ? (
-          <Badge className="gap-1.5 bg-brand-primary/10 text-brand-primary hover:bg-brand-primary/15">
+          <Badge className="gap-1.5 bg-brand-primary/10 text-primary hover:bg-brand-primary/15">
             <Circle size={10} className="fill-current" />
             Em estoque
           </Badge>

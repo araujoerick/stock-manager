@@ -15,7 +15,7 @@ const SalesPage = async () => {
     <section className="w-[1188px] space-y-5 p-8">
       <div className="flex w-full justify-between">
         <div className="space-y-2">
-          <span className="text-xs font-semibold text-brand-primary">
+          <span className="text-xs font-semibold text-primary">
             Vendas
           </span>
           <h1 className="text-xl font-semibold text-slate-900">
