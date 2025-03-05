@@ -1,5 +1,4 @@
 "use client";
-
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 
@@ -34,6 +33,13 @@ export const Combobox = ({
   onChange,
 }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
+  const [search, setSearch] = React.useState("");
+
+  const filteredOptions = options.filter(
+    (option) =>
+      option.value.includes(search) ||
+      option.label.toLowerCase().includes(search.toLowerCase()),
+  );
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -52,17 +58,22 @@ export const Combobox = ({
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search option..." />
+          <CommandInput
+            placeholder="Procurar produtos..."
+            value={search}
+            onValueChange={setSearch}
+          />
           <CommandList>
-            <CommandEmpty>No option found.</CommandEmpty>
+            <CommandEmpty>Produto não encontrado.</CommandEmpty>
             <CommandGroup>
-              {options.map((option) => (
+              {filteredOptions.map((option) => (
                 <CommandItem
                   key={option.value}
-                  value={option.value}
-                  onSelect={(currentValue) => {
-                    onChange(currentValue === value ? "" : currentValue);
+                  value={option.label}
+                  onSelect={() => {
+                    onChange(option.value);
                     setOpen(false);
+                    setSearch("");
                   }}
                 >
                   <Check
