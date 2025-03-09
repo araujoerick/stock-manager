@@ -1,12 +1,12 @@
 "use client";
 
 import { Badge } from "@/app/_components/ui/badge";
-import { Product } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import { Circle } from "lucide-react";
 import ProductTableDropdownMenu from "./table-dropdown-menu";
+import { ProductDto } from "@/app/_data-access/product/get-products";
 
-export const productTableColumns: ColumnDef<Product>[] = [
+export const productTableColumns: ColumnDef<ProductDto>[] = [
   {
     accessorKey: "name",
     header: "Produto",
