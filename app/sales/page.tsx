@@ -1,6 +1,6 @@
 import { getProducts } from "../_data-access/product/get-products";
 import { ComboboxOption } from "../_components/ui/combobox";
-import CreateSaleButton from "./_components/create-sale-button";
+import UpsertSaleButton from "./_components/create-sale-button";
 import { DataTable } from "../_components/ui/data-table";
 import { saleTableColumns } from "./_components/table-columns";
 import { getSales } from "../_data-access/sale/get-sales";
@@ -13,6 +13,12 @@ const SalesPage = async () => {
     label: product.name,
   }));
 
+  const tableData = sales.map((sale) => ({
+    ...sale,
+    products,
+    productOptions,
+  }));
+
   return (
     <section className="w-[1188px] space-y-5 p-8">
       <div className="flex w-full justify-between">
@@ -22,12 +28,9 @@ const SalesPage = async () => {
             Gestão de Vendas
           </h1>
         </div>
-        <CreateSaleButton products={products} productOptions={productOptions} />
+        <UpsertSaleButton products={products} productOptions={productOptions} />
       </div>
-      <DataTable
-        columns={saleTableColumns}
-        data={JSON.parse(JSON.stringify(sales))}
-      />
+      <DataTable columns={saleTableColumns} data={tableData} />
     </section>
   );
 };
