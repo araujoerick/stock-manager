@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stockly - Gerenciador de Estoque
+**`Next.js`**
+**`TypeScript`**
+**`Prisma`**
+**`Tailwind CSS`**
+**`PostgreSQL`**
+**`ACID Transactions`**
+**`Next-Safe-Action`**
 
-## Getting Started
+## 📋 Sobre o Projeto
 
-First, run the development server:
+O **Stockly** é um sistema de gestão de estoque desenvolvido para facilitar o controle de produtos e vendas. Ele permite que os usuários adicionem, editem e removam produtos do estoque, além de registrar, editar e excluir vendas. Esse projeto foi construído utilizando **Next.js**, garantindo alta performance e escalabilidade, além de **ACID Transactions** para garantir integridade e segurança nas operações de banco de dados.
 
+---
+
+## 🚀 Funcionalidades
+
+- **Gerenciamento de Estoque**: Adição, edição e remoção de produtos.
+- **Registro de Vendas**: Criação, edição e exclusão de vendas.
+- **Segurança e Integridade**: Implementação de **ACID Transactions** para garantir consistência nas operações.
+- **Rotas Seguras**: Uso do **Next-Safe-Action** para manipulação segura de ações no servidor.
+- **Interface Responsiva**: Estilização moderna com Tailwind CSS e ShadCN.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Next.js**: Framework React para otimização de performance e renderização eficiente.
+- **TypeScript**: Para um código mais seguro e escalável.
+- **Prisma**: ORM para manipulação de dados de forma simples e eficiente.
+- **Neon DB & PostgreSQL**: Banco de dados escalável e otimizado para armazenar produtos e vendas.
+- **ACID Transactions**: Garantia de consistência e segurança nos registros do banco de dados.
+- **Next-Safe-Action**: Abordagem segura para manipulação de ações no backend.
+- **DAL (Data Access Layer)**: Separação da camada de acesso aos dados para melhor organização do código.
+- **Route Handlers**: Gerenciamento otimizado de requisições no Next.js.
+- **Tailwind CSS & ShadCN**: Para estilização responsiva e moderna da interface.
+- **Context API & Hooks Customizados**: Para um gerenciamento eficiente de estados globais.
+- **React Hook Form & Zod**: Para validação e gerenciamento de formulários.
+
+---
+
+## 📦 Como Executar o Projeto
+
+1. Clone o repositório:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/seu-usuario/stockly.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Acesse o diretório do projeto:
+```bash
+cd stockly
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Instale as dependências:
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Configure as variáveis de ambiente no arquivo `.env`:
+```env
+DATABASE_URL=your_postgres_database_url
+NEXT_PUBLIC_API_URL=your_api_url
+```
 
-## Learn More
+5. Execute as migrations do banco de dados:
+```bash
+npx prisma migrate dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+7. Acesse no navegador:
+```
+http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ✨ Demonstração
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Acesse a aplicação em produção: [Stockly](https://seu-link-deploy.vercel.app)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Repositório do projeto: [GitHub](https://github.com/seu-usuario/stockly)
+
+---
+### 📸 Capturas do Projeto:
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/example1.png" alt="Tela inicial do Stockly">
+  <img src="https://github.com/user-attachments/assets/example2.png" alt="Página de gerenciamento de produtos">
+  <img src="https://github.com/user-attachments/assets/example3.png" alt="Registro de vendas">
+</div>
+
+## 📄 Licença
+
+Este projeto é licenciado sob a [MIT License](LICENSE).
+
