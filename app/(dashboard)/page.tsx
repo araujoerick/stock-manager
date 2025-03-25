@@ -1,4 +1,9 @@
-import { DollarSignIcon } from "lucide-react";
+import {
+  CircleDollarSignIcon,
+  DollarSignIcon,
+  PackageIcon,
+  ShoppingBasketIcon,
+} from "lucide-react";
 import Header, {
   HeaderLeft,
   HeaderSubtitle,
@@ -11,8 +16,13 @@ import {
   SummaryCardTitle,
   SummaryCardValue,
 } from "./_components/summary-card";
+import { getDashboard } from "../_data-access/dashboard/get-dashboard";
+import { formatCurrency } from "../_helpers/currency";
 
-export default function Home() {
+export default async function Home() {
+  const { totalRevenue, todayRevenue, totalSales, totalStock, totalProducts } =
+    await getDashboard();
+
   return (
     <main className="w-[1188px] space-y-5 p-8">
       <Header>
@@ -29,8 +39,10 @@ export default function Home() {
               <DollarSignIcon />
             </SummaryCardHeader>
             <SummaryCardContent>
-              <SummaryCardTitle>Receita</SummaryCardTitle>
-              <SummaryCardValue>R$ 999.000.000.000,00</SummaryCardValue>
+              <SummaryCardTitle>Receita total</SummaryCardTitle>
+              <SummaryCardValue>
+                {formatCurrency(totalRevenue)}
+              </SummaryCardValue>
             </SummaryCardContent>
           </SummaryCard>
 
@@ -39,8 +51,10 @@ export default function Home() {
               <DollarSignIcon />
             </SummaryCardHeader>
             <SummaryCardContent>
-              <SummaryCardTitle>Receita</SummaryCardTitle>
-              <SummaryCardValue>R$ 1.000,00</SummaryCardValue>
+              <SummaryCardTitle>Receita hoje</SummaryCardTitle>
+              <SummaryCardValue>
+                {formatCurrency(todayRevenue)}
+              </SummaryCardValue>
             </SummaryCardContent>
           </SummaryCard>
         </div>
@@ -48,31 +62,31 @@ export default function Home() {
         <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,2fr))] gap-4">
           <SummaryCard>
             <SummaryCardHeader>
-              <DollarSignIcon />
+              <CircleDollarSignIcon />
             </SummaryCardHeader>
             <SummaryCardContent>
-              <SummaryCardTitle>Receita</SummaryCardTitle>
-              <SummaryCardValue>R$ 1.000,00</SummaryCardValue>
+              <SummaryCardTitle>Vendas totais</SummaryCardTitle>
+              <SummaryCardValue>{totalSales}</SummaryCardValue>
             </SummaryCardContent>
           </SummaryCard>
 
           <SummaryCard>
             <SummaryCardHeader>
-              <DollarSignIcon />
+              <PackageIcon />
             </SummaryCardHeader>
             <SummaryCardContent>
-              <SummaryCardTitle>Receita</SummaryCardTitle>
-              <SummaryCardValue>R$ 1.000,00</SummaryCardValue>
+              <SummaryCardTitle>Total em estoque</SummaryCardTitle>
+              <SummaryCardValue>{totalStock}</SummaryCardValue>
             </SummaryCardContent>
           </SummaryCard>
 
           <SummaryCard className="max-[1135px]:col-span-2 max-[820px]:col-span-1">
             <SummaryCardHeader>
-              <DollarSignIcon />
+              <ShoppingBasketIcon />
             </SummaryCardHeader>
             <SummaryCardContent>
-              <SummaryCardTitle>Receita</SummaryCardTitle>
-              <SummaryCardValue>R$ 1.000,00</SummaryCardValue>
+              <SummaryCardTitle>Produtos</SummaryCardTitle>
+              <SummaryCardValue>{totalProducts}</SummaryCardValue>
             </SummaryCardContent>
           </SummaryCard>
         </div>
