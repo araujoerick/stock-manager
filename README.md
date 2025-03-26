@@ -89,9 +89,9 @@ Repositório do projeto: [GitHub](https://github.com/seu-usuario/stockly)
 ### 📸 Capturas do Projeto:
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/example1.png" alt="Tela inicial do Stockly">
+  <img src="https://github.com/user-attachments/assets/example1.png" alt="Dashboard do Stockly">
   <img src="https://github.com/user-attachments/assets/example2.p" alt="Página de gerenciamento de produtos">
-  <img src="https://github.com/user-attachments/assets/example3.png" alt="Registro de vendas">
+  <img src="https://github.com/user-attachments/assets/example3.png" alt="Página de vendas">
 </div>
 
 ## 📄 Licença
