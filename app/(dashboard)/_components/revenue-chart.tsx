@@ -1,8 +1,13 @@
 "use client";
 
-import { ChartConfig, ChartContainer } from "@/app/_components/ui/chart";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/app/_components/ui/chart";
 import { DayTotalRevenue } from "@/app/_data-access/dashboard/get-dashboard";
-import { BarChart } from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 const chartConfig: ChartConfig = {
   totalRevenue: {
@@ -11,13 +16,23 @@ const chartConfig: ChartConfig = {
 };
 
 interface RevenueChartProps {
-  data: DayTotalRevenue;
+  data: DayTotalRevenue[];
 }
 
 const RevenueChart = ({ data }: RevenueChartProps) => {
   return (
-    <ChartContainer config={chartConfig}>
-      <BarChart accessibilityLayer data={data} />
+    <ChartContainer config={chartConfig} className="min-h-0 w-full">
+      <BarChart accessibilityLayer data={data}>
+        <CartesianGrid vertical={false} />
+        <XAxis
+          dataKey="day"
+          tickLine={false}
+          tickMargin={10}
+          axisLine={false}
+        />
+        <ChartTooltip content={<ChartTooltipContent />} />
+        <Bar dataKey="totalRevenue" radius={4} />
+      </BarChart>
     </ChartContainer>
   );
 };
