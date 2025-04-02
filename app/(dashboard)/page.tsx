@@ -1,6 +1,5 @@
 import {
   CircleDollarSignIcon,
-  DollarSignIcon,
   PackageIcon,
   ShoppingBasketIcon,
 } from "lucide-react";
@@ -17,16 +16,15 @@ import {
   SummaryCardValue,
 } from "./_components/summary-card";
 import { getDashboard } from "../_data-access/dashboard/get-dashboard";
-import { formatCurrency } from "../_helpers/currency";
 import RevenueChart from "./_components/revenue-chart";
 import MostSoldProductItem from "./_components/most-sold-product-item";
 import TotalRevenueCard from "./_components/total-revenue-card";
 import { Suspense } from "react";
 import SkeletonCard from "./_components/skeleton-card";
+import TodayRevenueCard from "./_components/today-revenue-card";
 
 export default async function Home() {
   const {
-    todayRevenue,
     totalSales,
     totalStock,
     totalProducts,
@@ -49,17 +47,9 @@ export default async function Home() {
             <TotalRevenueCard />
           </Suspense>
 
-          <SummaryCard>
-            <SummaryCardHeader>
-              <DollarSignIcon />
-            </SummaryCardHeader>
-            <SummaryCardContent>
-              <SummaryCardTitle>Receita hoje</SummaryCardTitle>
-              <SummaryCardValue>
-                {formatCurrency(todayRevenue)}
-              </SummaryCardValue>
-            </SummaryCardContent>
-          </SummaryCard>
+          <Suspense fallback={<SkeletonCard />}>
+            <TodayRevenueCard />
+          </Suspense>
         </div>
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,2fr))] gap-4">
