@@ -31,7 +31,7 @@ const RevenueChart = ({ data }: RevenueChartProps) => {
           axisLine={false}
         />
         <ChartTooltip content={<ChartTooltipContent />} />
-        <Bar dataKey="totalRevenue" radius={4} />
+        <Bar dataKey="totalRevenue" radius={12} fill="#16a34a" />
       </BarChart>
     </ChartContainer>
   );
