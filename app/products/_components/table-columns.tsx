@@ -1,10 +1,9 @@
 "use client";
 
-import { Badge } from "@/app/_components/ui/badge";
 import { ColumnDef } from "@tanstack/react-table";
-import { Circle } from "lucide-react";
 import ProductTableDropdownMenu from "./table-dropdown-menu";
 import { ProductDto } from "@/app/_data-access/product/get-products";
+import ProductStatusBadge from "@/app/_components/product-status-badge";
 
 export const productTableColumns: ColumnDef<ProductDto>[] = [
   {
@@ -29,21 +28,12 @@ export const productTableColumns: ColumnDef<ProductDto>[] = [
   {
     accessorKey: "status",
     header: "Status",
-    cell: ({ row }) => {
-      const status = row.getValue("status");
-      const statusBadge =
-        status === "IN_STOCK" ? (
-          <Badge className="gap-1.5 bg-brand-primary/10 text-primary hover:bg-brand-primary/15">
-            <Circle size={10} className="fill-current" />
-            Em estoque
-          </Badge>
-        ) : (
-          <Badge className="gap-1.5 bg-slate-500/10 text-slate-500 hover:bg-slate-500/15">
-            <Circle size={10} className="fill-current" />
-            Esgotado
-          </Badge>
-        );
-      return statusBadge;
+    cell: ({
+      row: {
+        original: { status },
+      },
+    }) => {
+      return <ProductStatusBadge status={status} />;
     },
   },
   {
