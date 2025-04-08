@@ -90,7 +90,7 @@ Repositório do projeto: [GitHub](https://github.com/seu-usuario/stockly)
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/example1.png" alt="Dashboard do Stockly">
-  <img src="https://github.com/user-attachments/assets/example2.p" alt="Página de gerenciamento de produtos">
+  <img src="https://github.com/user-attachments/assets/67b341a4-d4d5-4458-af93-fad321d2ea5b" alt="Página de gerenciamento de produtos">
   <img src="https://github.com/user-attachments/assets/example3.png" alt="Página de vendas">
 </div>
 
