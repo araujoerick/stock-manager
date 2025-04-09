@@ -26,69 +26,69 @@ interface ComboboxProps {
   placeholder?: string;
 }
 
-export const Combobox = ({
-  value,
-  options,
-  placeholder,
-  onChange,
-}: ComboboxProps) => {
-  const [open, setOpen] = React.useState(false);
-  const [search, setSearch] = React.useState("");
+export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
+  ({ value, options, placeholder, onChange }, ref) => {
+    const [open, setOpen] = React.useState(false);
+    const [search, setSearch] = React.useState("");
 
-  const filteredOptions = options.filter(
-    (option) =>
-      option.value.includes(search) ||
-      option.label.toLowerCase().includes(search.toLowerCase()),
-  );
+    const filteredOptions = options.filter(
+      (option) =>
+        option.value.includes(search) ||
+        option.label.toLowerCase().includes(search.toLowerCase()),
+    );
 
-  return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-full justify-between"
-        >
-          {value
-            ? options.find((option) => option.value === value)?.label
-            : placeholder}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="max-w-[300px] p-0">
-        <Command>
-          <CommandInput
-            placeholder="Procurar produtos..."
-            value={search}
-            onValueChange={setSearch}
-          />
-          <CommandList>
-            <CommandEmpty>Produto não encontrado.</CommandEmpty>
-            <CommandGroup>
-              {filteredOptions.map((option) => (
-                <CommandItem
-                  key={option.value}
-                  value={option.label}
-                  onSelect={() => {
-                    onChange(option.value);
-                    setOpen(false);
-                    setSearch("");
-                  }}
-                >
-                  <Check
-                    className={cn(
-                      "mr-2 h-4 w-4",
-                      value === option.value ? "opacity-100" : "opacity-0",
-                    )}
-                  />
-                  {option.label}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
-  );
-};
+    return (
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            ref={ref}
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="w-full justify-between"
+          >
+            {value
+              ? options.find((option) => option.value === value)?.label
+              : placeholder}
+            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="max-w-[300px] p-0">
+          <Command>
+            <CommandInput
+              placeholder="Procurar produtos..."
+              value={search}
+              onValueChange={setSearch}
+            />
+            <CommandList>
+              <CommandEmpty>Produto não encontrado.</CommandEmpty>
+              <CommandGroup>
+                {filteredOptions.map((option) => (
+                  <CommandItem
+                    key={option.value}
+                    value={option.label}
+                    onSelect={() => {
+                      onChange(option.value);
+                      setOpen(false);
+                      setSearch("");
+                    }}
+                  >
+                    <Check
+                      className={cn(
+                        "mr-2 h-4 w-4",
+                        value === option.value ? "opacity-100" : "opacity-0",
+                      )}
+                    />
+                    {option.label}
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
+    );
+  },
+);
+
+Combobox.displayName = "Combobox";
