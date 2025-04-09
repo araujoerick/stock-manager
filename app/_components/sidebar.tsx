@@ -3,23 +3,23 @@ import SidebarButton from "./sidebar-button";
 
 const Sidebar = () => {
   return (
-    <aside className="h-screen w-64 bg-white">
+    <aside className="min-h-screen w-64 bg-white">
       <div>
-        <h1 className="px-8 py-6 text-2xl font-extrabold text-primary">
-          STOCKLY
+        <h1 className="hidden px-8 py-6 text-2xl font-extrabold text-primary md:inline-block">
+          STOCK MANAGER
+        </h1>
+        <h1 className="px-8 py-6 text-center text-2xl font-extrabold text-primary md:hidden">
+          SM
         </h1>
       </div>
       <div className="flex flex-col gap-2 p-2.5">
-        <SidebarButton href="/">
-          <LayoutGrid size={20} />
+        <SidebarButton href="/" icon={<LayoutGrid size={20} />}>
           Dashboard
         </SidebarButton>
-        <SidebarButton href="/products">
-          <Package size={20} />
+        <SidebarButton href="/products" icon={<Package size={20} />}>
           Produtos
         </SidebarButton>
-        <SidebarButton href="/sales">
-          <ShoppingBasket size={20} />
+        <SidebarButton href="/sales" icon={<ShoppingBasket size={20} />}>
           Vendas
         </SidebarButton>
       </div>
