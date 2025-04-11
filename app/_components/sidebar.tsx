@@ -8,7 +8,7 @@ const Sidebar = () => {
         <h1 className="hidden px-8 py-6 text-2xl font-extrabold text-primary md:inline-block">
           STOCK MANAGER
         </h1>
-        <h1 className="px-8 py-6 text-center text-2xl font-extrabold text-primary md:hidden">
+        <h1 className="mt-5 px-4 py-3 text-center text-2xl font-extrabold text-primary md:hidden">
           SM
         </h1>
       </div>

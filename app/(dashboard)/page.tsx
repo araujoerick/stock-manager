@@ -18,7 +18,7 @@ import MostSoldProducts, {
 
 export default async function Home() {
   return (
-    <main className="flex w-[1188px] flex-col space-y-5 p-8">
+    <main className="flex w-[1188px] flex-col space-y-5 p-4 md:p-8">
       <Header>
         <HeaderLeft>
           <HeaderSubtitle>Dashboard</HeaderSubtitle>
