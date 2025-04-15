@@ -43,12 +43,12 @@ O **Stock Manager** é um sistema de gestão de estoque desenvolvido para facili
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/stockly.git
+git clone https://github.com/seu-usuario/stock-manager.git
 ```
 
 2. Acesse o diretório do projeto:
 ```bash
-cd stockly
+cd stock-manager
 ```
 
 3. Instale as dependências:
@@ -80,7 +80,7 @@ http://localhost:3000
 
 ## ✨ Demonstração
 
-Acesse a aplicação em produção: [Stockly](https://stock-manager-araujo.vercel.app/)
+Acesse a aplicação em produção: [Stock Manager](https://stock-manager-araujo.vercel.app/)
 
 ---
 ### 📸 Capturas do Projeto:
