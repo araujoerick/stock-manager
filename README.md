@@ -1,4 +1,4 @@
-# Stockly - Gerenciador de Estoque
+# Stock Manager
 **`Next.js`**
 **`TypeScript`**
 **`Prisma`**
@@ -9,7 +9,7 @@
 
 ## 📋 Sobre o Projeto
 
-O **Stockly** é um sistema de gestão de estoque desenvolvido para facilitar o controle de produtos e vendas. Ele permite que os usuários adicionem, editem e removam produtos do estoque, além de registrar, editar e excluir vendas. Esse projeto foi construído utilizando **Next.js**, garantindo alta performance e escalabilidade, além de **ACID Transactions** para garantir integridade e segurança nas operações de banco de dados.
+O **Stock Manager** é um sistema de gestão de estoque desenvolvido para facilitar o controle de produtos e vendas. Ele permite que os usuários adicionem, editem e removam produtos do estoque, além de registrar, editar e excluir vendas. Esse projeto foi construído utilizando **Next.js**, garantindo alta performance e escalabilidade, além de **ACID Transactions** para garantir integridade e segurança nas operações de banco de dados.
 
 ---
 
@@ -59,7 +59,6 @@ npm install
 4. Configure as variáveis de ambiente no arquivo `.env`:
 ```env
 DATABASE_URL=your_postgres_database_url
-NEXT_PUBLIC_API_URL=your_api_url
 ```
 
 5. Execute as migrations do banco de dados:
@@ -81,20 +80,12 @@ http://localhost:3000
 
 ## ✨ Demonstração
 
-Acesse a aplicação em produção: [Stockly](https://seu-link-deploy.vercel.app)
-
-Repositório do projeto: [GitHub](https://github.com/seu-usuario/stockly)
+Acesse a aplicação em produção: [Stockly](https://stock-manager-araujo.vercel.app/)
 
 ---
 ### 📸 Capturas do Projeto:
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/example1.png" alt="Dashboard do Stockly">
-  <img src="https://github.com/user-attachments/assets/67b341a4-d4d5-4458-af93-fad321d2ea5b" alt="Página de gerenciamento de produtos">
-  <img src="https://github.com/user-attachments/assets/example3.png" alt="Página de vendas">
+  <img src="https://github.com/user-attachments/assets/30285423-d3c9-4f89-81a5-84ce94f82c8f" alt="Mockup Stock Manager">
 </div>
-
-## 📄 Licença
-
-Este projeto é licenciado sob a [MIT License](LICENSE).
 
